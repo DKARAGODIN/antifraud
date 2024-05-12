@@ -1,0 +1,8 @@
+dataset: S-FFSD
+
+trainfeature: data/trf_1d.npy
+trainlabel: data/trl_1d.npy
+testfeature: data/tef_1d.npy
+testlabel: data/tel_1d.npy
+
+test_size: 0.2

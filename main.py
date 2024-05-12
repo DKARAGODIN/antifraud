@@ -36,6 +36,10 @@ def parse_args():
         yaml_file = "config/gtan_cfg.yaml"
     elif method in ['rgtan']:
         yaml_file = "config/rgtan_cfg.yaml"
+    elif method in ['cb']:
+        yaml_file = "config/cb_cfg.yaml"
+    elif method in ['xgb']:
+        yaml_file = "config/xgb_cfg.yaml"
     else:
         raise NotImplementedError("Unsupported method.")
 
@@ -144,6 +148,12 @@ def main(args):
             args['dataset'], args['test_size'])
         rgtan_main(feat_data, g, train_idx, test_idx, labels, args,
                    cat_features, neigh_features, nei_att_head=args['nei_att_heads'][args['dataset']])
+    elif args['method'] == 'cb':
+        from methods.catboost.catboost_main import catboost_main
+        catboost_main(args)
+    elif args['method'] == 'xgb':
+        from methods.xgboost.xgboost_main import xgboost_main
+        xgboost_main(args)
     else:
         raise NotImplementedError("Unsupported method. ")
 

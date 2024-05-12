@@ -149,3 +149,103 @@ If you find *Antifraud* is useful for your research, please consider citing the 
         year={2016},
         organization={Springer}
     }
+
+##
+conda create -n antifraud python=3.7
+conda config --add channels conda-forge
+conda config --add channels dglteam
+conda install --file requirements.txt
+conda install pytorch==1.12.1 cpuonly -c pytorch
+conda install anaconda::pyyaml
+conda install catboost
+conda install xgboost
+conda install conda-forge::py-xgboost-cpu=1.6.0
+
+
+
+```
+python main.py --method mcnn
+
+-- one experiment takes minutes
+-- mcnn results: auc: 0.7214, F1: 0.6865, AP: 0.3344
+-- mcnn results: auc: 0.7544, F1: 0.6681, AP: 0.3381
+-- mcnn results: auc: 0.7254, F1: 0.6999, AP: 0.3484
+-- mcnn results: auc: 0.7438, F1: 0.6430, AP: 0.3198
+-- mcnn results: auc: 0.7396, F1: 0.6324, AP: 0.3130
+-- mcnn results: auc: 0.7497, F1: 0.6797, AP: 0.3426
+-- mcnn results: auc: 0.7285, F1: 0.6931, AP: 0.3429
+-- mcnn results: auc: 0.7012, F1: 0.6857, AP: 0.3271
+```
+
+
+
+```
+python main.py --method stan_2d
+
+-- one experiment takes minutes
+-- stan_2d results: auc: 0.7270, F1: 0.7251, AP: 0.3800
+-- stan_2d results: auc: 0.7602, F1: 0.7164, AP: 0.3774
+-- stan_2d results: auc: 0.7413, F1: 0.6312, AP: 0.3136
+-- stan_2d results: auc: 0.6959, F1: 0.7315, AP: 0.4135
+-- stan_2d results: auc: 0.6928, F1: 0.7261, AP: 0.4018
+```
+
+
+```
+python main.py --method stan
+
+-- one experiment takes about one hour
+-- stan results: auc: 0.7121, F1: 0.7186, AP: 0.3710
+-- stan results: auc: 0.7548, F1: 0.7106, AP: 0.3696
+-- stan results: auc: 0.7403, F1: 0.6788, AP: 0.3372
+-- stan results: auc: 0.7074, F1: 0.6502, AP: 0.3014
+```
+
+
+
+```
+python main.py --method stagn
+
+-- one experiment takes about minutes
+-- stagn results: auc: 0.5794, F1: 0.5550, AP: 0.2177
+-- stagn results: auc: 0.6862, F1: 0.5302, AP: 0.2622
+-- stagn results: auc: 0.7477, F1: 0.6608, AP: 0.3338
+-- stagn results: auc: 0.6484, F1: 0.4681, AP: 0.2323
+-- stagn results: auc: 0.6852, F1: 0.6365, AP: 0.2901
+-- stagn results: auc: 0.6968, F1: 0.6033, AP: 0.2688
+-- stagn results: auc: 0.5929, F1: 0.5763, AP: 0.2234
+-- stagn results: auc: 0.6541, F1: 0.4735, AP: 0.2336
+```
+
+
+
+```
+python main.py --method gtan
+
+-- one experiment takes about one hour
+-- gtan results: AUC: 0.8564, f1: 0.7277, AP: 0.6446
+-- gtan results: AUC: 0.8435, f1: 0.7447, AP: 0.6788
+-- gtan results: AUC: 0.8407, f1: 0.7248, AP: 0.6362
+```
+
+
+
+```
+python main.py --method rgtan
+```
+
+
+```
+python main.py --method cb
+
+-- one experiment takes seconds
+-- cb results: auc: 0.7063, F1: 0.7513, AP: 0.4630 (10 times identical results)
+```
+
+
+```
+python main.py --method xgb
+
+-- one experiment takes seconds
+-- xgb results: auc: 0.7184, F1: 0.7586, AP: 0.4631  (10 times identical results)
+```
